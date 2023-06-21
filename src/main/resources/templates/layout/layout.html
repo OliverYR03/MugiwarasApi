@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" th:href="@{/css/carrito.css}" />
+	<style>
+		@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+		/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+		:root {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-family: "Open Sans", sans-serif;
+			background: #f6f9ff;
+			color: #444444;
+		}
+
+		a {
+			color: #4154f1;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #717ff5;
+			text-decoration: none;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: "Nunito", sans-serif;
+		}
+
+		/*--------------------------------------------------------------
+  # Main
+  --------------------------------------------------------------*/
+		#main {
+			margin-top: 60px;
+			padding: 20px 30px;
+			transition: all 0.3s;
+		}
+
+		@media (max-width: 1199px) {
+			#main {
+				padding: 20px;
+			}
+		}
+
+		/*--------------------------------------------------------------
+  # Page Title
+  --------------------------------------------------------------*/
+		.pagetitle {
+			margin-bottom: 10px;
+		}
+
+		.pagetitle h1 {
+			font-size: 24px;
+			margin-bottom: 0;
+			font-weight: 600;
+			color: #012970;
+		}
+
+		/*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+		.back-to-top {
+			position: fixed;
+			visibility: hidden;
+			opacity: 0;
+			right: 15px;
+			bottom: 15px;
+			z-index: 99999;
+			background: #4154f1;
+			width: 40px;
+			height: 40px;
+			border-radius: 4px;
+			transition: all 0.4s;
+		}
+
+		.back-to-top i {
+			font-size: 24px;
+			color: #fff;
+			line-height: 0;
+		}
+
+		.back-to-top:hover {
+			background: #6776f4;
+			color: #fff;
+		}
+
+		.back-to-top.active {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		/*--------------------------------------------------------------
+  # Override some default Bootstrap stylings
+  --------------------------------------------------------------*/
+
+		/* Light Backgrounds */
+		.bg-primary-light {
+			background-color: #cfe2ff;
+			border-color: #cfe2ff;
+		}
+
+		.bg-secondary-light {
+			background-color: #e2e3e5;
+			border-color: #e2e3e5;
+		}
+
+		.bg-success-light {
+			background-color: #d1e7dd;
+			border-color: #d1e7dd;
+		}
+
+		.bg-danger-light {
+			background-color: #f8d7da;
+			border-color: #f8d7da;
+		}
+
+		.bg-warning-light {
+			background-color: #fff3cd;
+			border-color: #fff3cd;
+		}
+
+		.bg-info-light {
+			background-color: #cff4fc;
+			border-color: #cff4fc;
+		}
+
+		.bg-dark-light {
+			background-color: #d3d3d4;
+			border-color: #d3d3d4;
+		}
+
+		/* Card */
+		.card {
+			margin-bottom: 30px;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+		}
+
+		.card-header,
+		.card-footer {
+			border-color: #ebeef4;
+			background-color: #fff;
+			color: #798eb3;
+			padding: 15px;
+		}
+
+		.card-title {
+			padding: 20px 0 15px 0;
+			font-size: 18px;
+			font-weight: 500;
+			color: #012970;
+			font-family: "Poppins", sans-serif;
+		}
+
+		.card-title span {
+			color: #899bbd;
+			font-size: 14px;
+			font-weight: 400;
+		}
+
+		.card-body {
+			padding: 0 20px 20px 30px;
+		}
+
+		.card-img-overlay {
+			background-color: rgba(255, 255, 255, 0.6);
+		}
+
+		/* Breadcrumbs */
+		.breadcrumb {
+			font-size: 14px;
+			font-family: "Nunito", sans-serif;
+			color: #899bbd;
+			font-weight: 600;
+		}
+
+		.breadcrumb a {
+			color: #899bbd;
+			transition: 0.3s;
+		}
+
+		.breadcrumb a:hover {
+			color: #51678f;
+		}
+
+		.breadcrumb .breadcrumb-item::before {
+			color: #899bbd;
+		}
+
+		.breadcrumb .active {
+			color: #51678f;
+			font-weight: 600;
+		}
+
+		/* Bordered Tabs */
+		.nav-tabs-bordered {
+			border-bottom: 2px solid #ebeef4;
+		}
+
+		.nav-tabs-bordered .nav-link {
+			margin-bottom: -2px;
+			border: none;
+			color: #2c384e;
+		}
+
+		.nav-tabs-bordered .nav-link:hover,
+		.nav-tabs-bordered .nav-link:focus {
+			color: #4154f1;
+		}
+
+		.nav-tabs-bordered .nav-link.active {
+			background-color: #fff;
+			color: #4154f1;
+			border-bottom: 2px solid #4154f1;
+		}
+
+		/*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+		.logo {
+			line-height: 1;
+		}
+
+		@media (min-width: 1200px) {
+			.logo {
+				width: 280px;
+			}
+		}
+
+		.logo img {
+			max-height: 26px;
+			margin-right: 6px;
+		}
+
+		.logo span {
+			font-size: 26px;
+			font-weight: 700;
+			color: #012970;
+			font-family: "Nunito", sans-serif;
+		}
+
+		.header {
+			transition: all 0.5s;
+			z-index: 997;
+			height: 60px;
+			box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+			background-color: #fff;
+			padding-left: 20px;
+			/* Toggle Sidebar Button */
+			/* Search Bar */
+		}
+
+		.header .toggle-sidebar-btn {
+			font-size: 32px;
+			padding-left: 10px;
+			cursor: pointer;
+			color: #012970;
+		}
+
+		.header .search-bar {
+			min-width: 360px;
+			padding: 0 20px;
+		}
+
+		@media (max-width: 1199px) {
+			.header .search-bar {
+				position: fixed;
+				top: 50px;
+				left: 0;
+				right: 0;
+				padding: 20px;
+				box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
+				background: white;
+				z-index: 9999;
+				transition: 0.3s;
+				visibility: hidden;
+				opacity: 0;
+			}
+
+			.header .search-bar-show {
+				top: 60px;
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+
+		.header .search-form {
+			width: 100%;
+		}
+
+		.header .search-form input {
+			border: 0;
+			font-size: 14px;
+			color: #012970;
+			border: 1px solid rgba(1, 41, 112, 0.2);
+			padding: 7px 38px 7px 8px;
+			border-radius: 3px;
+			transition: 0.3s;
+			width: 100%;
+		}
+
+		.header .search-form input:focus,
+		.header .search-form input:hover {
+			outline: none;
+			box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
+			border: 1px solid rgba(1, 41, 112, 0.3);
+		}
+
+		.header .search-form button {
+			border: 0;
+			padding: 0;
+			margin-left: -30px;
+			background: none;
+		}
+
+		.header .search-form button i {
+			color: #012970;
+		}
+
+		/*--------------------------------------------------------------
+  # Sidebar
+  --------------------------------------------------------------*/
+		.sidebar {
+			position: fixed;
+			top: 60px;
+			left: 0;
+			bottom: 0;
+			width: 300px;
+			z-index: 996;
+			transition: all 0.3s;
+			padding: 20px;
+			overflow-y: auto;
+			scrollbar-width: thin;
+			scrollbar-color: #aab7cf transparent;
+			box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+			background: #EBF5FB;
+		}
+
+		@media (max-width: 1199px) {
+			.sidebar {
+				left: -300px;
+			}
+		}
+
+		.sidebar::-webkit-scrollbar {
+			width: 5px;
+			height: 8px;
+			background-color: #fff;
+		}
+
+		.sidebar::-webkit-scrollbar-thumb {
+			background-color: #aab7cf;
+		}
+
+		@media (min-width: 1200px) {
+
+			#main,
+			#footer {
+				margin-left: 300px;
+			}
+		}
+
+		@media (max-width: 1199px) {
+			.toggle-sidebar .sidebar {
+				left: 0;
+			}
+		}
+
+		@media (min-width: 1200px) {
+
+			.toggle-sidebar #main,
+			.toggle-sidebar #footer {
+				margin-left: 0;
+			}
+
+			.toggle-sidebar .sidebar {
+				left: -300px;
+			}
+		}
+
+		.sidebar-nav {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.sidebar-nav li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.sidebar-nav .nav-item {
+			margin-bottom: 5px;
+		}
+
+		.sidebar-nav .nav-heading {
+			font-size: 11px;
+			text-transform: uppercase;
+			color: #899bbd;
+			font-weight: 600;
+			margin: 10px 0 5px 15px;
+		}
+
+		.sidebar-nav .nav-link {
+			display: flex;
+			align-items: center;
+			font-size: 15px;
+			font-weight: 600;
+			color: #4154f1;
+			transition: 0.3;
+			background: #f6f9ff;
+			padding: 10px 15px;
+			border-radius: 4px;
+		}
+
+		.sidebar-nav .nav-link i {
+			font-size: 16px;
+			margin-right: 10px;
+			color: #4154f1;
+		}
+
+		.sidebar-nav .nav-link.collapsed {
+			color: #012970;
+			background: #fff;
+		}
+
+		.sidebar-nav .nav-link.collapsed i {
+			color: #899bbd;
+		}
+
+		.sidebar-nav .nav-link:hover {
+			color: #4154f1;
+			background: #f6f9ff;
+		}
+
+		.sidebar-nav .nav-link:hover i {
+			color: #4154f1;
+		}
+
+		.sidebar-nav .nav-link .bi-chevron-down {
+			margin-right: 0;
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+			transform: rotate(180deg);
+		}
+
+		.sidebar-nav .nav-content {
+			padding: 5px 0 0 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.sidebar-nav .nav-content a {
+			display: flex;
+			align-items: center;
+			font-size: 14px;
+			font-weight: 600;
+			color: #012970;
+			transition: 0.3;
+			padding: 10px 0 10px 40px;
+			transition: 0.3s;
+		}
+
+		.sidebar-nav .nav-content a i {
+			font-size: 6px;
+			margin-right: 8px;
+			line-height: 0;
+			border-radius: 50%;
+		}
+
+		.sidebar-nav .nav-content a:hover,
+		.sidebar-nav .nav-content a.active {
+			color: #4154f1;
+		}
+
+		.sidebar-nav .nav-content a.active i {
+			background-color: #4154f1;
+		}
+
+		/*--------------------------------------------------------------
+  # Dashboard
+  --------------------------------------------------------------*/
+		/* Filter dropdown */
+		.dashboard .filter {
+			position: absolute;
+			right: 0px;
+			top: 15px;
+		}
+
+		.dashboard .filter .icon {
+			color: #aab7cf;
+			padding-right: 20px;
+			padding-bottom: 5px;
+			transition: 0.3s;
+			font-size: 16px;
+		}
+
+		.dashboard .filter .icon:hover,
+		.dashboard .filter .icon:focus {
+			color: #4154f1;
+		}
+
+		.dashboard .filter .dropdown-header {
+			padding: 8px 15px;
+		}
+
+		.dashboard .filter .dropdown-header h6 {
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			color: #aab7cf;
+			margin-bottom: 0;
+			padding: 0;
+		}
+
+		.dashboard .filter .dropdown-item {
+			padding: 8px 15px;
+		}
+
+		/* Info Cards */
+		.dashboard .info-card {
+			padding-bottom: 10px;
+		}
+
+		.dashboard .info-card h6 {
+			font-size: 28px;
+			color: #012970;
+			font-weight: 700;
+			margin: 0;
+			padding: 0;
+		}
+
+		.dashboard .card-icon {
+			font-size: 32px;
+			line-height: 0;
+			width: 64px;
+			height: 64px;
+			flex-shrink: 0;
+			flex-grow: 0;
+		}
+
+		.dashboard .sales-card .card-icon {
+			color: #4154f1;
+			background: #f6f6fe;
+		}
+
+		.dashboard .revenue-card .card-icon {
+			color: #2eca6a;
+			background: #e0f8e9;
+		}
+
+		.dashboard .customers-card .card-icon {
+			color: #ff771d;
+			background: #ffecdf;
+		}
+
+		/*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+		.footer {
+			padding: 20px 0;
+			font-size: 14px;
+			transition: all 0.3s;
+			border-top: 1px solid #cddfff;
+		}
+
+		.footer .copyright {
+			text-align: center;
+			color: #012970;
+		}
+
+		.footer .credits {
+			padding-top: 5px;
+			text-align: center;
+			font-size: 13px;
+			color: #a0a0a0;
+		}
+
+		.wraper svg {
+			height: 40px;
+			width: 40px;
+			color: #9b9b9b;
+
+		}
+
+		.wraper svg:hover {
+			color: green;
+		}
+
+		.exit span {
+			color: black;
+		}
+
+		.exit span:hover {
+			color: red;
+		}
+
+		.logo {
+			margin-left: 15px;
+		}
+
+		.exit i {
+			color: black;
+		}
+
+		.space {
+			margin-top: 8rem
+		}
+
+		.wraper {
+			margin-left: 150px;
+
+		}
+
+		.boton {
+			width: 80px;
+			height: 30px;
+		}
+
+		.cabecera {
+			background: #262a34;
+		}
+
+		/* Estilos personalizados */
+		.header {
+			background-color: #fff;
+			padding: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.logo img {
+			max-width: 30px;
+			margin-right: 10px;
+		}
+
+		.logo span {
+			font-weight: 600;
+		}
+
+		.sidebar {
+			background-color: #f8f9fa;
+			padding: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.nav-item {
+			margin-bottom: 10px;
+		}
+
+		.nav-item a {
+			color: #333;
+		}
+
+		.nav-item a:hover {
+			color: #007bff;
+		}
+
+		.nav-item a i {
+			margin-right: 10px;
+		}
+
+		.nav-item.exit {
+			margin-top: 20px;
+		}
+
+		.footer {
+			background-color: #f8f9fa;
+			padding: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+
+		.footer span {
+			color: #007bff;
+		}
+	</style>
+	<title th:text="'Mugiwaras'"></title>
+</head>
+
+<body>
+	<header th:fragment="header" id="header"
+		class="header fixed-top d-flex align-items-center cabecera animate_animated animate_fadeInLeft">
+		<div class="d-flex align-items-center justify-content-between">
+			<i class="bi bi-list toggle-sidebar-btn"></i>
+			<div class="logo">
+				<a class="logo d-flex align-items-center">
+					
+					<span class="d-none d-lg-block">Mugiwaras</span>
+				</a>
+			</div>
+			<div class="container-icon">
+				<div class="container-cart-icon">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="icon-cart"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+						/>
+					</svg>
+					<div class="count-products">
+						<span id="contador-productos">0</span>
+					</div>
+				</div>
+	</header>
+	<aside id="sidebar" class="sidebar" th:fragment="sidebar">
+		<ul class="sidebar-nav" id="sidebar-nav">
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="bi bi-grid"></i><span>Dashboard<a href="/saludYa/home"></span>
+
+
+				</a>
+			</li>
+
+			<li class="nav-heading">Paginas</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#clientes-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-person-badge"></i><span>Clientes</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+				<ul id="clientes-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+					<li>
+						<a th:href="@{/clientes/listarCliente}">
+							<i class="bi bi-circle"></i><span>Lista de Clientes</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/clientes/nuevo}">
+							<i class="bi bi-circle"></i><span>Registrar Cliente</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#envios-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-star-half"></i><span>Opiniones</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+				<ul id="envios-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+					<li>
+						<a th:href="@{/opiniones/listarOpinion}">
+							<i class="bi bi-circle"></i><span>Lista Opiniones</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/opiniones/nuevo}">
+							<i class="bi bi-circle"></i><span>Registrar Opiniones</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#usuarios-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-person-fill"></i><span>Personal</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+				<ul id="usuarios-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+					<li>
+						<a th:href="@{/personal/listarPersonal}">
+							<i class="bi bi-circle"></i><span>Listar Personal</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/personal/nuevo}">
+							<i class="bi bi-circle"></i><span>Registrar Personal</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#inventario-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-journal"></i><span>Ordenes</span><i
+						class="bi bi-chevron-down ms-auto"></i>
+				</a>
+				<ul id="inventario-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+					<li>
+						<a th:href="@{/ordenes/listarOrdenes}">
+							<i class="bi bi-circle"></i><span>Ordenes</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/ordenes/nuevo}">
+							<i class="bi bi-circle"></i><span>Registrar Orden</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#reporte-nav" data-bs-toggle="collapse" href="#">
+					<i class="bi bi-basket3-fill"></i><span>Platos</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+				<ul id="reporte-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+					<li>
+						<a th:href="@{/platos/listarPlato}">
+							<i class="bi bi-circle"></i><span>Platos</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/platos/nuevo}">
+							<i class="bi bi-circle"></i><span>Agregar Platos</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<div class="space">
+			<li class="nav-item exit">
+				<a class="nav-link" data-bs-target="#components-nav" href="/mugiwaras2/logout">
+					<i class="bi bi-box-arrow-right"></i><span>Salir</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+
+			</li>
+
+		</ul>
+	</aside>
+	<!-- Footer -->
+	<footer id="footer" class="footer" th:fragment="footer">
+		<div class="copyright">
+			&copy; Copyright <strong><span>Mugiwaras</span></strong>. All Rights Reserved
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"></script>
+			<script th:src="@{/js/carrito.js}"></script>
+	</footer>
+</body>
+
+</html>

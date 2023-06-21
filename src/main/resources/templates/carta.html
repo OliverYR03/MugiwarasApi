@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:extends="base">
+<head th:replace="~{components/head2 :: head2}"></head>
+<head> 
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>🏴‍☠️⚓ Mugiwaras 🏴‍☠️⚓</title>
+</head>
+<body>
+<section th:replace="~{components/navbar1 :: menu2}"></section>
+    <div class="container">
+        <div class="row">
+        <!-- Menu -->
+        <section id="menu" class="bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 intro-text">
+                            <h1>Tenemos una gran variedad de platillos </h1>
+                            <p> Inclusive comidas vegetarianas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-parrillas-tab" data-bs-toggle="pill" data-bs-target="#pills-parrillas"
+                                type="button" role="tab" aria-controls="pills-parrillas" aria-selected="true">Ramen y Sopas</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-salad-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-salad" type="button" role="tab" aria-controls="pills-salad"
+                                aria-selected="true">Platos</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-Bebidas-tab" data-bs-toggle="pill" data-bs-target="#pills-Bebidas"
+                                type="button" role="tab" aria-controls="pills-Bebidas" aria-selected="true">Bebidas</button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-postres-tab" data-bs-toggle="pill" data-bs-target="#pills-postres"
+                                type="button" role="tab" aria-controls="pills-postres" aria-selected="true">Postres</button>
+                        </li>
+
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+
+                        <div class="tab-pane fade show active" id="pills-parrillas" role="tabpanel" aria-labelledby="pills-parrillas-tab"
+                            tabindex="0">
+                            <div class="title">
+                                <h4 class="title-menu"><span></span> Ramen y Sopas</h4>
+                            </div>  
+                            <div class="menu">
+                                <div class="single-menu shadow-on-hover" >
+                                    <img th:src="@{/images/Ramensopas/prd-fideos-ramen-coreano-samyang-salsa-soja-japonshop_1.jpg}" class="img" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Fideos Ramen Coreano Jjajang<span class="price">S/. 27</span></h4>
+                                        <p class="menu-subtitle"> Ramen con salsa de soja elaborado a carne de ternera coreana, caldo , salsa shoyu, patata frita, repllo y cebolla </p>
+                                        <button href="" data-id="1" class="btn-add-cart">añadir al carrito</button>
+                                    </div>
+                                </div>
+                                <div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Ramensopas/prd-fideos-ramen-tempura-jengibre-escabeche-japonshop-removebg-preview.png}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Fideos Ramen Soba Tempura Donbei Red<span>S/. 20</span></h4>
+                                        <p class="menu-subtitle">Fideos Soba elaborados con caldo bonito, cebolleta, y tempura de verduras con jengibre rojo macerado. Receta Tradicional Setsubun </p>
+                                    
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Ramensopas/prd-prd-ramen-coreano-yeul-japonshop_2-removebg-preview.png}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Ramen Coreano Estilo Mochis Topokki<span>20$</span></h4>
+                                        <p class="menu-subtitle">Saborea el Ramen Coreano Estilo Mochis Topokki Delicioso ramen con salsa fresca Toppoki (elaborada con arroz, cebolla verde, soja, pimentón y vino de arroz), caldo de ternera con kimchi y puerro</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Ramensopas/prd-ramen-fresco-japones-tan-tan-noodle-japonshop-removebg-preview.png}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Raciones Tallarines Frescos Tan Tan | Estilo Japonés <span>10$</span></h4>
+                                        <p class="menu-subtitle">Los fideos frescos Tan Tan son una variante de los tradicionales fideos Tan Tan que se caracterizan por estar hechos con una masa fresca en lugar de fideos secos.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Ramensopas/prd-snack-ramen-yakisoba-japones-japonshop-removebg-preview.png}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Snack Japonés de Yakisoba con Mayonesa BIG⠀<span>5$</span></h4>
+                                        <p class="menu-subtitle">Delicioso y crujiente snack elaborado a partir de Yakisoba frito con pollo y mayonesa.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Ramensopas/prd-topokki-ultra-picante-carbonara-japonshop-removebg-preview.png}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Mochis Topokki Coreanos Carbonara ULTRA HOT Chicken Bowl⠀<span>10$</span> </h4>
+                                        <p class="menu-subtitle">¡Deliciosa pasta coreana elaborada con harina de arroz glutinoso (Mochis Topokki) con la famosa salsa del Ra</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade show" id="pills-salad" role="tabpanel"
+                            aria-labelledby="pills-salad-tab" tabindex="0">
+                            <div class="title">
+                                <h4 class="title-menu"> Platos </h4>
+                            </div>
+                            <div class="menu">
+                                <div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla1.jpg}">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Hanzo Beef⠀⠀<span>S/. 35</span></h4>
+                                        <p class="menu-subtitle"> Láminas de lomo fino salteadas al wok, bañadas con salsa a base de ciruela japonesa y ajonjolí blanco. </p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                                <div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla2.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Yasaitame Mixto ⠀<span>S/. 45</span></h4>
+                                        <p class="menu-subtitle">Saltado japonés de verduras, acompañado de pescado y mariscos en salsa de ostión. </p>
+                                    
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla3.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Sakana Oiromushi<span>⠀⠀⠀S/. 50</span></h4>
+                                        <p class="menu-subtitle">Filete de pescado a la plancha marinado en shoyu y aceite de ajonjolí. Sobre una cama de berenjena.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla4.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Salmón Teriyaki <span>⠀⠀⠀⠀S/. 55</span></h4>
+                                        <p class="menu-subtitle">Filetes de salmón a la parrilla en salsa teriyaki balsámico, sobre cama de puré wasabi.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla5.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Maki Parrillero⠀<span>41$</span></h4>
+                                        <p class="menu-subtitle">Tempura de cebolla, espárrago y palta. Lomo fino con queso sopleteado, coronado con chimichurri oriental por fuera.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/platos/pla.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Tako KaramiS⠀<span>45$</span> </h4>
+                                        <p class="menu-subtitle">Pulpa de cangrejo, piel frita de pescado y palta. Por fuera, salmón sopleteado y tartar de pulpo.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                    <!-- ..... BEBIDAS ..... -->
+                        <div class="tab-pane fade show" id="pills-Bebidas" role="tabpanel" aria-labelledby="pills-Bebidas-tab"
+                            tabindex="0">
+                            <div class="title">
+                                <h4 class="title-menu"><span></span> Bebidas</h4>
+                            </div>  
+                            <div class="menu">
+                                <div class="single-menu shadow-on-hover" >
+                                    <img th:src="@{/images/Bebidas/cart-drinks-img1.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Caipiriña⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<span>S/. 27</span></h4>
+                                        <p class="menu-subtitle"> Cóctel hecho con aguardiente de caña , azúcar , hielo picado y zumo de limón .</p>
+                                        <button>añadir a carrito</button>a
+                                    </div>
+                                </div>
+                                <div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/bebidas/cart-drinks-img2.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Coctel de Naranja⠀⠀⠀⠀⠀⠀⠀⠀<span>S/. 20</span></h4>
+                                        <p class="menu-subtitle">Cóctel a base de tequila. Contiene una mezcla con bebida de té hatsu naranja, limón tahití , mango y naranja</p>
+                                    
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Bebidas/cart-drinks-img3.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Coca Cola<span>45$</span></h4>
+                                        <p class="menu-subtitle">Bebida azucarada gaseosa vendida a nivel mundial en tiendas, restaurantes y máquinas expendedoras en más de doscientos países.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Bebidas/cart-drinks-img4.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Moscow Mule<span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀45$</span></h4>
+                                        <p class="menu-subtitle">Cóctel con alcohol -por tanto, una bebida para adultos- que se sirve tradicionalmente en una jarra de cobre</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/bebidas/cart-drinks-img5.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Vino Palacio de Menade⠀<span>45$</span></h4>
+                                        <p class="menu-subtitle">Un Vino blanco de Rueda, Castilla y León, España. Hecho con Verdejo. Este vino tiene 120 menciones de notas de cítrico </p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/bebidas/cart-drinks-img7.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Malteada<span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀45$</span> </h4>
+                                        <p class="menu-subtitle">Similar a un milkshake pero con la salvedad de que además de leche lleva una cucharada de polvo de malta</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade show" id="pills-postres" role="tabpanel" aria-labelledby="pills-postres-tab"
+                            tabindex="0">
+                            <div class="title">
+                                <h4 class="title-menu"><span></span> Postres</h4>
+                            </div>  
+                            <div class="menu">
+                                <div class="single-menu shadow-on-hover" >
+                                    <img th:src="@{/images/Postres/postre1.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Dorayaki⠀⠀<span>S/. 27</span></h4>
+                                        <p class="menu-subtitle"> dos tortitas redondas rellenas con una pasta dulce de judías rojas (azuki) —sí, judías y no crema de chocolate como muchos suelen pensar— denominada anko.</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                                <div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Postres/postre2.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Hanami Dango⠀<span>S/. 30</span></h4>
+                                        <p class="menu-subtitle"> tres bolas de harina de arroz de color verde pálido, blanco y rosa. Es fácil identificarlo ya que ha conseguido tener hasta su propio emoji. </p>
+                                    
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Postres/postre3.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Kasutera<span>45$</span></h4>
+                                        <p class="menu-subtitle">Textura esponjosísima, húmeda y suave, este bizcocho se elabora con poquísimos ingredientes y siempre con algún tipo de jarabe azucarado, en este caso la miel.</p>
+                                        <button style="margin-left: 270px;">añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Postres/postre4.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Mamekan<span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀45$</span></h4>
+                                        <p class="menu-subtitle">Mamekan, un dulce extremadamente simple de elaborar —solo lleva agar-agar y judías negras— que es perfecto para la temporada estival</p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Postres/postre5.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Mitarashi dango⠀<span>45$</span></h4>
+                                        <p class="menu-subtitle"> Una brocheta de bambú con diversas bolas de masa dulce de harina de arroz ensartadas</p>
+                                        <button style="margin-left: 270px;">añadir a carrito</button>
+                                    </div>
+                                </div><div class="single-menu shadow-on-hover">
+                                    <img th:src="@{/images/Postres/postre5.jpg}" alt="">
+                                    <div class="menu-content">
+                                        <h4 class="menu-title" >Mizu yokan⠀<span>45$</span> </h4>
+                                        <p class="menu-subtitle">Se caracteriza por su forma de bloque y su textura gelatinosa y es perfecto para el verano, ya que se tiene que comer bien frío. </p>
+                                        <button>añadir a carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 intro-text">
+                                    <p> Si tienes una sugerencia para nuevos platilos hazlo llegar a nuestro correo</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+        </section>
+    </div>
+</div>
+</body>

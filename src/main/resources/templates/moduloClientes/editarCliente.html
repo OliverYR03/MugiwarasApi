@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<aside th:replace="layout/layout :: sidebar"></aside>
+	<main id="main" class="main">
+		<div class="pagetitle">
+			<h1>CLIENTES</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/clientes/listarCliente}">clientes</a></li>
+					<li class="breadcrumb-item active">editar</li>
+				</ol>
+			</nav>
+		</div>
+		<section class="section dashboard">	
+			<div class="card-body">
+                                <form th:action="@{/clientes/guardar}" th:object="${clientes}" method="post">
+                                  <div class="row">
+									   <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="disabledTextInput">Id</label>
+                                            <input type="text"   id="disabledInput" class="form-control" th:field="*{idclientes}"  readonly="readonly" >
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label >Nombre</label>
+                                            <input type="hidden" name="idarticulo" id="idarticulo">
+                                            <input type="text" class="form-control" name="nombre" id="nombre" th:field="*{nombre}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>Direccion</label>
+                                               <input class="form-control" type="text"  th:field="*{direccion}"/>                                      
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>Número</label>
+                                               <input class="form-control" type="text"  th:field="*{numero}"/>                                      
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>Correo</label>
+                                               <input class="form-control" type="text"  th:field="*{correo}"/>                                      
+                                        </div>
+                                    </div>
+                                    
+                                    
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label >Tipo Pago</label>
+                                            <input type="text" name="stock" th:field="*{tipopago}"class="form-control"required>
+                                        </div>
+                                    </div>              
+
+                                  </div>
+                                  <br>
+
+                                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <button class="btn btn-success"type="submit"><i class="fa fa-save"></i> Guardar</button>
+                                        
+                                    <a class="btn btn-danger" th:href="@{/clientes/listarCliente}" type="button"> <i class="fa fa-arrow-circle-left"> Cancelar</i></a>
+                                    
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+
+	</div>
+	</body>
+</html>

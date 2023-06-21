@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>Pagina de Bienvenida</title>
+        <link href="css/miLogin.css" rel="stylesheet" type="text/css"/>
+        <link href="css/miLayout.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+       
+        
+
+    </head>
+    <body id="principal">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-row">
+       
+            <a class="navbar-brand mr-auto" href="/">
+                <img src="" class="img-fluid" alt="Responsive image">
+            </a>
+            <ul class="navbar-nav flex-row mr-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mr-3 mr-lg-0" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i><span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" th:href="@{/nuevoUsuario}">Usuario</a>
+                        <a class="dropdown-item" th:href="@{/login}">Login</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+             
+        </nav>
+
+        <section id="seccion1">   
+            <div>
+                
+            </div> 
+        </section>
+
+        <footer class="mt-auto fixed-bottom p-3">
+            <small>Copyright &copy; www.certus.edu.pe</small>
+        </footer>
+    </body>
+</html>

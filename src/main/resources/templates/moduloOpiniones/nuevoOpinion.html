@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<aside th:replace="layout/layout :: sidebar"></aside>
+	<main id="main" class="main">
+		<div class="pagetitle">
+			<h1>OPINIONES</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/clientes/listarCliente}">Opiniones</a></li>
+					<li class="breadcrumb-item active">nuevo</li>
+				</ol>
+			</nav>
+		</div>
+		<section class="section dashboard">	
+			<div class="card-body">
+				
+				<form action="#" th:action="@{/opiniones/guardar}" th:object="${opinion}" method="post">
+                  <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Plato</label>
+                            <input type="text" class="form-control" 
+                              placeholder="Escribir Plato" th:field="*{platos}" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                            <div class="form-group"> 
+                                <label>Clientes</label>
+                               <input class="form-control" type="text"  th:field="*{clientes}" placeholder="Escribir Cliente"/>                                      
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Puntaje</label>
+                            <input type="text" th:field="*{calificacion}"class="form-control" placeholder="Escribir Calificación" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Comentario</label>
+                            <input type="email" class="form-control" th:field="*{comentario}" placeholder="Escribir Comentario"><br>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Fecha:</label>
+                            <input type="text" class="form-control" th:field="*{fecha}" placeholder="fecha"><br>
+                        </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <button class="btn btn-success"type="submit"><i class="fa fa-save"></i> Guardar</button>
+                        
+                    <a class="btn btn-danger" th:href="@{/opiniones/listarOpinion}" type="button"> <i class="fa fa-arrow-circle-left"> Cancelar</i></a>
+                    
+                  </div>
+
+
+
+                </form>
+
+                <!-- FORMULARIO -->
+               </div>
+
+							
+
+</section>
+	</main>
+</body>

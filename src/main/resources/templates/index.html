@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:extends="base">
+<head th:replace="~{components/head2 :: head2}"></head>
+<body>
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+         <!-- MENU -->
+	<section th:replace="~{components/navbar1 :: menu2}"></section>
+
+     <!-- HOME -->
+     <section id="home" class="slider" data-stellar-background-ratio="0.5">
+          <div class="row">
+
+                    <div class="owl-carousel owl-theme">
+                         <div class="item item-first">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Mugiwaras- Restaurante Japonés</h3>
+                                             <h1>Nuestra misión es brindar una experiencia inolvidable.</h1>
+                                             <a href="#team" class="section-btn btn btn-default smoothScroll">Conoce a nuestros chefs</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-second">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Tus comidas japonesas favoritas</h3>
+                                             <h1>¡La mejor calidad gastronómica esta aquí!</h1>
+                                             <a href="#menu" class="section-btn btn btn-default smoothScroll">Descubre nuestro menú</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-third">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-8 col-sm-12">
+                                             <h3>Nuevo restaurante en la ciudad</h3>
+                                             <h1>¡Disfruta de nuestros menús especiales todos los domingos y viernes aquí también!</h1>
+                                             <a href="#contact" class="section-btn btn btn-default smoothScroll">Reservacion</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+          </div>
+     </section>
+
+
+     <!-- SOBRE NOSOTROS -->
+     <section id="nosotros" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="about-info">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                                   <h4>Nuestra historia</h4>
+                                   <h2>¡Somos uno de los mejores restaurantes de comida japonesa!</h2>
+                              </div>
+
+                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Mugiwaras nació por nuestro amor hacia la cultura y tradición de Japón. TIntentamos difundir y expresar nuestros sentimientos a través de la buena comida. Somos creyentes de que lo bueno no siempre es lo más costoso y que lo cómodo no siempre es de baja calidad. Nos unimos para ofrecerles una propuesta novedosa en donde la cocina japonesa tradicional se combina con un ambiente original y divertido que lo transportará a la Tierra del Sol Naciente. Naruto Japanese Food ofrece especialidades de la auténtica gastronomía nipona, elaboradas utilizando técnicas japonesas y selectos insumos importados.  La calidad de nuestra cocina y un constante afán de superación nos han permitido ganar el cariño y respeto de nuestros comensales.</p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                              <img src="images/nosotros.png" class="img-responsive" alt="">
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TEAM -->
+     <section id="equipo" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Conoce a nuestros chefs</h2>
+                              <h4>Tenemos a los mejores!</h4>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                              <img src="images/chef1.jpg" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>Experta en sushi japonés</h4> 
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Nora Catherine</h3>
+                              <p>Kitchen Officer</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
+                              <img src="images/chef2.webp" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>El mayor experto en postres japoneses</h4>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Lindsay Perlen</h3>
+                              <p>Propietaria y gerente</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
+                              <img src="images/team-image3.jpg" class="img-responsive" alt="">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>Experta en OKONOMIYAKI</h4>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>Isabella Grace</h3>
+                              <p>Especialista en Sushi</p>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- MENU-->
+     <section id="menu" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                              <h2>Nuestros Menus</h2>
+                              <h4>Contamos con una gran variedad de platos</h4>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/ramen.jpg" class="image-popup" title="American Breakfast">
+                                   <img src="images/ramen.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>RAMEN</h3>
+                                             <p>Fideos de trigo</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$25</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/menu-image2.jpg" class="image-popup" title="Self-made Salad">
+                                   <img src="images/soba.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>SOBA</h3>
+                                             <p>Fideos finos</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$18</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/menu-image3.jpg" class="image-popup" title="Chinese Noodle">
+                                   <img src="images/fideos-chinos.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Fideos chinos</h3>
+                                             <p>Pollo y vegetales</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$34</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/menu-image4.jpg" class="image-popup" title="Rice Soup">
+                                   <img src="images/Okonomiyaki.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>OKONOMIYAKI</h3>
+                                             <p>Asado</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$28</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/menu-image5.jpg" class="image-popup" title="Project title">
+                                   <img src="images/menu-image5.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>YAKITORI</h3>
+                                             <p>Brochetas de pollo</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$46</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <!-- MENU THUMB -->
+                         <div class="menu-thumb">
+                              <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
+                                   <img src="images/menu-image6.jpg" class="img-responsive" alt="">
+
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>Big Flat Fried</h3>
+                                             <p>Pepper / Crispy</p>
+                                        </div>
+                                        <div class="menu-price">
+                                             <span>$30</span>
+                                        </div>
+                                   </div>
+                              </a>
+                         </div>
+                    </div>
+
+
+               </div>
+          </div>
+     </section>
+
+
+
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Encuéntranos</h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p> Av. Arequipa 3423,<br> Junto al parque Terlomes<br>Centro de Lima</p>
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reservacion</h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>090-080-0650 | 090-070-0430</p>
+                                   <p><a href="mailto:info@company.com">info@mugiwaras.com</a></p>
+                                   <p>LINE: eatery247 </p>
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-8">
+                         <div class="footer-info footer-open-hour">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Horario</h2>
+                              </div>
+                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Lunes: Cerrado</p>
+                                   <div>
+                                        <strong>Martes a Viernes</strong>
+                                        <p>7:00 AM - 9:00 PM</p>
+                                   </div>
+                                   <div>
+                                        <strong>Sábado - Domingo</strong>
+                                        <p>11:00 AM - 10:00 PM</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                         <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                              <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                              <li><a href="#" class="fa fa-twitter"></a></li>
+                              <li><a href="#" class="fa fa-instagram"></a></li>
+                              <li><a href="#" class="fa fa-google"></a></li>
+                         </ul>
+
+                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s"> 
+                              <p><br>Copyright &copy; 2023 <br>Mugiwaras
+                              <br><br>Design: Mugiwaras</p>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="js/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.stellar.min.js"></script>
+     <script src="js/wow.min.js"></script>
+     <script src="js/owl.carousel.min.js"></script>
+     <script src="js/jquery.magnific-popup.min.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/custom.js"></script>
+
+
+</body>

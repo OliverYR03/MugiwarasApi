@@ -1,0 +1,31 @@
+<section th:fragment="menu2" class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+
+                    <!-- lOGO TEXT HERE -->
+                    <a th:href="@{/home}" class="navbar-brand"><img
+          src="images/logo.png" class="mr-5"
+          height="30"
+          width="30"
+          alt="Mugiwaras"
+          loading="lazy"
+        />Mugiwaras</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="avbar-collapse">
+
+                    <ul class="nav navbar-right">
+                         <li><a th:href="@{/home#nosotros}">Nosotros</a></li>
+                         <li><a th:href="@{/home#equipo}">Nuestro Equipo</a></li>
+                         <li><a th:href="@{/home#menu}">Menu</a></li>
+                         <li><a th:href="@{/carta}">Carta</a></li>
+						 <li class="invisible">Elemento invisible</li>
+						 <li class="invisible">Elemento invisible</li>
+                         <li><a th:href="@{/login}">Login</a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>

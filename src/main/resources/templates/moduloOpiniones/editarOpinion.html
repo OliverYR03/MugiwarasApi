@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<aside th:replace="layout/layout :: sidebar"></aside>
+	<main id="main" class="main">
+		<div class="pagetitle">
+			<h1>RESEÑA</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/home}">Home</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/platos/listarPlatos}">ordenes</a></li>
+					<li class="breadcrumb-item active">editar</li>
+				</ol>
+			</nav>
+		</div>
+		<section class="section dashboard">
+			<div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+							<!-- FORMULARIO -->
+							
+							<div class="card-body">
+								<form action="#" th:action="@{/opiniones/guardar}" th:object="${opiniones}" method="post">
+                                  <div class="row">
+									   <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="disabledTextInput">Id:</label>
+                                            <input type="text"  class="form-control" th:field="*{idopinion}"  readonly="readonly" >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+											<label >Plato</label>
+											<select class="form-control" id="idEstudiante" th:field="*{platos.idplato}">
+											<option th:each="platos : ${listaPlatos}"
+													th:value="${platos.idplato}" th:text="${platos.nombre}">
+											</option>
+											</select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label >Cliente:</label>
+                                            <select class="form-control" id="idEstudiante" th:field="*{clientes.idclientes}">
+											<option th:each="clientes : ${listaClientes}"
+													th:value="${clientes.idclientes}" th:text="${clientes.nombre}">
+											</option>
+											</select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>Calificacion:</label>
+                                               <input class="form-control" type="text"  th:field="*{calificacion}"/>                                      
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label>Comentario:</label>
+                                               <input class="form-control" type="text"  th:field="*{comentario}"/>                                      
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label >Fecha</label>
+                                            <input type="text" class="form-control" th:field="*{fecha}"><br>
+                                        </div>
+                                    </div>
+                                                                 
+
+                                  </div>
+
+                                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									   <br>
+                                        <button class="btn btn-success"type="submit"><i class="fa fa-save"></i> Guardar</button>
+                                        
+                                    <a class="btn btn-danger" th:href="@{/opiniones/listarOpinion}" type="button"> <i class="fa fa-arrow-circle-left"> Cancelar</i></a>
+                                    
+                                    </div>
+
+
+
+                               </form>
+                            </div>						
+	</div>
+							<!-- FORMULARIO -->
+
+	</div>
+	</div>
+</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
