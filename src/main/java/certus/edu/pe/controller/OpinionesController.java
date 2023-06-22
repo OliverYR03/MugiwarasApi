@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import certus.edu.pe.model.exceptions.ResourceNotFoundException;
 import certus.edu.pe.modelo.Opiniones;
 import certus.edu.pe.repository.OpinionesRepository;
-import certus.edu.pe.repository.ClientesRepository;
-import certus.edu.pe.repository.PlatosRepository;
 
 //@CrossOrigin(origins = "http://localhost:4200") // conectar a angular peruano  || 3000 for react
 @RestController
@@ -28,8 +26,6 @@ import certus.edu.pe.repository.PlatosRepository;
 public class OpinionesController {
 	@Autowired
 	private OpinionesRepository opinionesRepository;
-	
-
 	
 	@GetMapping("/listar")
 	public List<Opiniones> getAllOpiniones() 
@@ -50,6 +46,8 @@ public class OpinionesController {
 	public Opiniones createOpinion(@Validated @RequestBody Opiniones opiniones) {
 		return opinionesRepository.save(opiniones);
 	}
+	
+
 	
 	@PutMapping("/listar/{id}")
 	public ResponseEntity <Opiniones> updateOpinion(@PathVariable(value = "id") Integer opinionId,
